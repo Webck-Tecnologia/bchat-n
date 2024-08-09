@@ -1,0 +1,6 @@
+# give bchat user permission to start/stop/restart bchat systemd service
+
+%bchat ALL=NOPASSWD: /bin/systemctl start bchat.target
+%bchat ALL=NOPASSWD: /bin/systemctl stop bchat.target
+%bchat ALL=NOPASSWD: /bin/systemctl restart bchat.target
+%bchat ALL=NOPASSWD: /usr/local/bin/cwctl

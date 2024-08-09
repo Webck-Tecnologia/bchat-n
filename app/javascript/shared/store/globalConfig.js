@@ -1,0 +1,68 @@
+const {
+  API_CHANNEL_NAME: apiChannelName,
+  API_CHANNEL_THUMBNAIL: apiChannelThumbnail,
+  APP_VERSION: appVersion,
+  AZURE_APP_ID: azureAppId,
+  BRAND_NAME: brandName,
+  CHATWOOT_INBOX_TOKEN: bchatInboxToken,
+  CSML_EDITOR_HOST: csmlEditorHost,
+  CREATE_NEW_ACCOUNT_FROM_DASHBOARD: createNewAccountFromDashboard,
+  DIRECT_UPLOADS_ENABLED: directUploadsEnabled,
+  DISPLAY_MANIFEST: displayManifest,
+  GIT_SHA: gitSha,
+  HCAPTCHA_SITE_KEY: hCaptchaSiteKey,
+  INSTALLATION_NAME: installationName,
+  LOGO_THUMBNAIL: logoThumbnail,
+  LOGO: logo,
+  LOGO_DARK: logoDark,
+  PRIVACY_URL: privacyURL,
+  TERMS_URL: termsURL,
+  WIDGET_BRAND_URL: widgetBrandURL,
+  DISABLE_USER_PROFILE_UPDATE: disableUserProfileUpdate,
+  DEPLOYMENT_ENV: deploymentEnv,
+  CONVESATION_STYLE_CSS: conversationStyleCss,
+} = window.globalConfig || {};
+
+const state = {
+  apiChannelName,
+  apiChannelThumbnail,
+  appVersion,
+  azureAppId,
+  brandName,
+  bchatInboxToken,
+  csmlEditorHost,
+  deploymentEnv,
+  createNewAccountFromDashboard,
+  directUploadsEnabled: directUploadsEnabled === 'true',
+  disableUserProfileUpdate: disableUserProfileUpdate === 'true',
+  displayManifest,
+  gitSha,
+  hCaptchaSiteKey,
+  installationName,
+  logo,
+  logoDark,
+  logoThumbnail,
+  privacyURL,
+  termsURL,
+  widgetBrandURL,
+  conversationStyleCss: conversationStyleCss || '',
+};
+
+export const getters = {
+  get: $state => $state,
+  isOnBchatCloud: $state => $state.deploymentEnv === 'cloud',
+  isACustomBrandedInstance: $state => $state.installationName !== 'Bchat',
+  isABchatInstance: $state => $state.installationName === 'Bchat',
+};
+
+export const actions = {};
+
+export const mutations = {};
+
+export default {
+  namespaced: true,
+  state,
+  getters,
+  actions,
+  mutations,
+};
